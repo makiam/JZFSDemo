@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.aoi'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+description = 'Art Of Illusion'
+
+ext {
+    mainClass = "aoi.Application"
+}
+
+application {
+    mainClass =  "aoi.Application"
+}
+
+dependencies {
+    implementation 'org.pf4j:pf4j:3.15.1'
+
+    implementation libs.jackson
+    implementation libs.groovy
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+}
+
+test {
+    useJUnitPlatform()
+}
